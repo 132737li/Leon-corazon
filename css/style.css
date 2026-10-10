@@ -623,6 +623,39 @@ footer {
     border: 1px solid #ddd;
     border-radius: 5px;
 }
+.social-icons a:hover {
+    color: #fff;
+    transform: translateY(-5px);
+}
+
+/* Instagram : dégradé officiel */
+.social-icons a:has(.fa-instagram):hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+/* Facebook */
+.social-icons a:has(.fa-facebook-f):hover {
+    background: #1877f2;
+}
+
+/* WhatsApp */
+.social-icons a:has(.fa-whatsapp):hover {
+    background: #25d366;
+}
+
+/* Telegram */
+.social-icons a:has(.fa-telegram):hover {
+    background: #229ed9;
+}
+
+/* X (Twitter) */
+.social-icons a:has(.fa-x-twitter):hover {
+    background: #000;
+}
+/* GitHub */
+.social-icons a:has(.fa-github):hover {
+    background: #181717;
+}
 
 /* Order summary */
 .order-summary {
@@ -1300,4 +1333,113 @@ footer {
     .guest-links {
         gap: 12px;
     }
+}
+
+@media (max-width: 768px) {
+    header nav {
+        display: none;
+    }
+
+    header nav.open {
+        display: block;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 30px;
+        height: 3px;
+        background: #333;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* Animation en croix quand le menu est ouvert */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+@media (min-width: 769px) {
+    .hamburger {
+        display: none;
+    }
+
+    header nav {
+        display: block;
+    }
+}
+/* Le attribut hidden doit toujours gagner (sinon le bloc s'affiche même déconnecté) */
+.header-auth[hidden],
+.user-menu[hidden],
+.user-dropdown[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        position: relative;
+    }
+
+    /* Ligne 1 : logo à gauche, profil + hamburger à droite */
+    .logo {
+        order: 1;
+        margin-right: auto;
+    }
+
+    .header-auth {
+        order: 2;
+    }
+
+    .hamburger {
+        order: 3;
+        margin-left: 12px;
+    }
+
+    /* Ligne 2 : le menu déroulant prend toute la largeur */
+    header nav {
+        order: 4;
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    /* On garde seulement la photo pour gagner de la place */
+    #user-label {
+        display: none;
+    }
+}
+
+/* Menu déroulant du profil, aligné sur le bord droit */
+.user-menu {
+    position: relative;
+}
+
+.user-dropdown {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    z-index: 1000;
+}
+
+.user-avatar {
+    border-radius: 50%;
+    object-fit: cover;
 }

@@ -1,32 +1,21 @@
-// Hamburger Menu Toggle
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav');
+document.addEventListener('DOMContentLoaded', () => {
+    const bouton = document.querySelector('.hamburger');
+    const menu = document.querySelector('header nav');
 
-    if (hamburger) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            nav.classList.toggle('active');
+    if (!bouton || !menu) return;
+
+    bouton.addEventListener('click', () => {
+        const ouvert = menu.classList.toggle('open');
+        bouton.classList.toggle('active', ouvert);
+        bouton.setAttribute('aria-expanded', ouvert);
+    });
+
+    // Ferme le menu quand on clique sur un lien
+    menu.querySelectorAll('a').forEach(lien => {
+        lien.addEventListener('click', () => {
+            menu.classList.remove('open');
+            bouton.classList.remove('active');
+            bouton.setAttribute('aria-expanded', 'false');
         });
-
-        // Close menu when clicking on a link
-        const navLinks = nav.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                nav.classList.remove('active');
-            });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const isClickInsideNav = nav.contains(event.target);
-            const isClickInsideHamburger = hamburger.contains(event.target);
-
-            if (!isClickInsideNav && !isClickInsideHamburger && nav.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                nav.classList.remove('active');
-            }
-        });
-    }
+    });
 });

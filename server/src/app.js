@@ -5,18 +5,23 @@ const cors = require('cors');
 const config = require('./config');
 const { notFound, errorHandler } = require('./middleware/errors');
 
+// Retire le slash final et passe en minuscules pour comparer proprement les origines
+const normaliser = (url) => String(url).trim().replace(/\/+$/, '').toLowerCase();
+
 function createApp() {
   const app = express();
 
   app.set('trust proxy', 1); // derrière le proxy de Render : IP réelle pour la limitation de débit
   app.disable('x-powered-by');
 
+  const originesAutorisees = config.clientOrigins.map(normaliser);
+
   app.use(helmet());
   app.use(
     cors({
       origin(origin, callback) {
-        // Sans en-tête Origin (curl, tests) ou depuis un site autorisé
-        if (!origin || config.clientOrigins.includes(origin)) return callback(null, true);
+        // Sans en-tête Origin (curl, tests, UptimeRobot) ou depuis un site autorisé
+        if (!origin || originesAutorisees.includes(normaliser(origin))) return callback(null, true);
         callback(null, false);
       },
       methods: ['GET', 'POST', 'PATCH', 'DELETE'],
@@ -26,7 +31,10 @@ function createApp() {
   );
   app.use(express.json({ limit: '1mb' }));
 
-  app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
+  // Routes de santé (pour UptimeRobot et les tests)
+  const sante = (req, res) => res.json({ status: 'ok' });
+  app.get('/health', sante);
+  app.get('/api/health', sante);
 
   app.use('/api/auth', require('./routes/auth'));
   app.use('/api/orders', require('./routes/orders'));
