@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Berlly Boutique</title>
+
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/lamp.css">
+</head>
+
+<body class="lamp-page" data-on="false">
+
+    <!-- Lampe -->
+    <div class="lamp-section">
+        <div class="lamp-wrapper">
+            <svg class="lamp-svg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+                <ellipse class="inner-glow" cx="100" cy="110" rx="60" ry="30" />
+
+                <rect class="lamp-base" x="92" y="100" width="16" height="160" rx="8" />
+                <rect class="lamp-base" x="60" y="250" width="80" height="12" rx="6" />
+
+                <g class="pull-cord">
+                    <line class="cord-line" x1="130" y1="110" x2="130" y2="180" />
+                    <circle class="cord-bead" cx="130" cy="190" r="6" />
+                    <circle class="cord-hit" cx="130" cy="190" r="25" fill="transparent" />
+                </g>
+
+                <path class="lamp-shade" d="M30 110 C 30 50, 170 50, 170 110 C 170 125, 30 125, 30 110 Z" />
+            </svg>
+        </div>
+        <p class="lamp-hint">Tirez sur la cordelette 💡</p>
+    </div>
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <div class="auth-logo">
+                <h1>Berlly Boutique</h1>
+                <p>Bienvenue</p>
+            </div>
+
+            <h2>Se connecter</h2>
+
+            <form id="login-form">
+
+                <div class="form-group">
+                    <label for="login-username">Nom d'utilisateur</label>
+                    <input type="text" id="login-username" placeholder="Votre nom d'utilisateur" autocomplete="username"
+                        autocapitalize="none" spellcheck="false" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">Mot de passe</label>
+
+                    <div class="password-box">
+                        <input type="password" id="login-password" placeholder="Votre mot de passe" required>
+
+                        <button type="button" class="show-password" onclick="togglePassword('login-password', this)">
+                            👁
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember">
+                        <input type="checkbox" id="remember-me">
+                        Se souvenir de moi
+                    </label>
+
+                    <a href="mot-de-passe-oublie.html">
+                        Mot de passe oublié ?
+                    </a>
+                </div>
+
+                <button type="submit" class="auth-btn">
+                    Se connecter
+                </button>
+
+            </form>
+
+            <p class="auth-message" id="login-message"></p>
+
+            <div class="auth-footer">
+                <p>
+                    Vous n'avez pas encore de compte ?
+                    <a href="inscription.html">Créer un compte</a>
+                </p>
+
+                <p>
+                    <a href="index.html">← Retour à la boutique</a>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Ordre important : GSAP, puis Draggable, puis tes scripts -->
+    <script src="node_modules/gsap/dist/gsap.min.js"></script>
+    <script src="node_modules/gsap/dist/Draggable.min.js"></script>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/lamp.js"></script>
+
+</body>
+
+</html>

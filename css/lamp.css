@@ -1,0 +1,73 @@
+/* ===== Lampe de connexion - Berlly Boutique ===== */
+:root {
+    --bg-color: #121417;
+    --lamp-matte: #e8e2d9;
+    --lamp-shade: #f5f0e6;
+    --lamp-base: #d1ccc2;
+    --glow-color: rgba(255, 214, 110, 0.3);
+    --accent-color: #d4a373;
+    --on: 0;
+    --transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.lamp-page {
+    background: var(--bg-color);
+    overflow-x: hidden;
+    transition: background var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+
+body.lamp-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, var(--glow-color), transparent 70%);
+    opacity: var(--on);
+    transition: opacity var(--transition);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.lamp-section {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.5rem;
+}
+
+.lamp-wrapper { width: 200px; }
+
+.lamp-svg { width: 100%; height: auto; overflow: visible; }
+
+.lamp-shade { fill: var(--lamp-shade); }
+.lamp-base { fill: var(--lamp-base); }
+
+.inner-glow {
+    fill: var(--glow-color);
+    opacity: var(--on);
+    transition: opacity var(--transition);
+}
+
+.cord-line { stroke: var(--accent-color); stroke-width: 2; }
+.cord-bead { fill: var(--accent-color); }
+
+.cord-hit { cursor: grab; }
+.cord-hit:active { cursor: grabbing; }
+
+.lamp-hint {
+    color: var(--lamp-matte);
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 0.3rem;
+    transition: opacity var(--transition);
+}
+
+body[data-on="true"] .lamp-hint { opacity: 0; }
+
+body.lamp-page .auth-container { position: relative; z-index: 1; }

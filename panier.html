@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Berlly Boutique - Mon panier</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="images/logo/logo1.png" alt="Logo de Berlly Boutique" width="50" height="50">
+            <a href="index.html" title="Retour à l'accueil de Berlly Boutique">Berlly Boutique</a>
+        </div>
+
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav aria-label="Navigation principale">
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Accueil</a></li>
+                <li><a href="produits.html"><i class="fa-solid fa-box"></i> Nos produits</a></li>
+                <li><a href="apropos.html"><i class="fa-solid fa-info-circle"></i> Notre histoire</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Nous contacter</a></li>
+                <li>
+                    <a href="panier.html" class="cart-icon-wrap" title="Voir mon panier">
+                        <i class="fa-solid fa-cart-shopping"></i> Mon panier
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+
+                <li id="guest-links" class="guest-links">
+                    <a href="inscription.html"><i class="fa-solid fa-circle-user"></i> Inscription</a>
+                    <a href="connexion.html"><i class="fa-solid fa-right-to-bracket"></i> Connexion</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header-auth" id="header-auth" hidden>
+            <div id="user-menu" class="user-menu" hidden>
+                <button id="user-btn" class="user-btn" type="button" aria-haspopup="true" aria-expanded="false">
+                    <img id="user-avatar" class="user-avatar" src="" alt="Photo de profil" width="32" height="32">
+                    <span id="user-label">Profil</span> ▾
+                </button>
+
+                <ul id="user-dropdown" class="user-dropdown" hidden>
+                    <li class="user-dropdown-info">
+                        <strong id="user-fullname"></strong>
+                        <span id="user-email"></span>
+                    </li>
+                    <li><a href="profil.html" id="menu-profile"><i class="fa-solid fa-user-pen"></i> Modifier le profil</a></li>
+                    <li><a href="mes-commandes.html" id="menu-orders"><i class="fa-solid fa-bag-shopping"></i> Mes commandes</a></li>
+                    <li><button type="button" id="menu-logout" class="menu-logout"><i class="fa-solid fa-right-from-bracket"></i> Se déconnecter</button></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+
+        <section class="cart">
+
+            <h1>Mon panier</h1>
+
+            <div id="cart-items">
+                <!-- Les articles du panier sont générés automatiquement -->
+            </div>
+
+            <div class="cart-total">
+
+                <h2>
+                    <label for="">
+                        Total :
+                    </label>
+                    <span id="cart-total-value">
+                        0 FBu
+                    </span>
+                </h2>
+
+                <a href="commande.html" class="btn">
+                    Passer la commande
+                </a>
+
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+    
+        <div class="footer-content">
+    
+            <div class="footer-section">
+    
+                <h3>Contactez-nous</h3>
+    
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    +257 67 52 97 51
+                </p>
+    
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    berllyboutique@gmail.com
+                </p>
+    
+            </div>
+    
+        </div>
+    
+        <div class="social-media">
+    
+            <h3>Suivez-nous</h3>
+    
+            <div class="social-icons">
+    
+                <a href="https://www.instagram.com/lionwin57?igsi=MWI5YzRpeXZkNWUzZw==">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                
+                <a href="https://www.facebook.com/share/1FTaqohsDk/">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                
+                <a href="https://wa.me/25776672387">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="https://t.me/EasterBella">
+                    <i class="fa-brands fa-telegram"></i>
+                </a>
+               
+                <a href="https://x.com/IrakozeL2526">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                
+
+            </div>
+    
+        </div>
+    
+        <div class="copyright">
+    
+            <p>
+                &copy; 2026 Berlly Boutique.
+                Tous droits réservés.
+            </p>
+    
+        </div>
+    
+    </footer>
+
+    <script src="js/cart.js"></script>
+    <script src="js/hamburger.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/header.js"></script>
+</body>
+
+</html>

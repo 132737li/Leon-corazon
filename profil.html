@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon profil - Berlly Boutique</title>
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <div class="auth-logo">
+                <h1>Berlly Boutique</h1>
+                <p>Mon profil</p>
+            </div>
+
+            <h2>Modifier mon profil</h2>
+
+            <form id="profile-form">
+
+                <!-- Photo de profil -->
+                <div class="profile-photo-box">
+                    <img id="profile-preview" src="" alt="Photo de profil" width="110" height="110">
+
+                    <div class="profile-photo-actions">
+                        <label for="profile-photo">📷 Changer la photo</label>
+                        <input type="file" id="profile-photo" accept="image/png,image/jpeg,image/webp">
+                        <button type="button" id="profile-photo-remove">Supprimer</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-username">Nom d'utilisateur</label>
+                    <input type="text" id="profile-username" readonly aria-readonly="true">
+                    <p class="field-note">🔒 Le nom d'utilisateur ne peut pas être modifié.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-name">Nom complet</label>
+                    <input type="text" id="profile-name" placeholder="Votre nom" autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-email">Adresse e-mail</label>
+                    <input type="email" id="profile-email" readonly aria-readonly="true">
+                    <p class="field-note">🔒 L'adresse e-mail ne peut pas être modifiée. Elle sert uniquement à récupérer votre mot de passe.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-phone">Téléphone</label>
+                    <input type="tel" id="profile-phone" placeholder="Votre numéro" autocomplete="tel">
+                </div>
+
+                <button type="submit" class="auth-btn">Enregistrer les modifications</button>
+
+            </form>
+
+            <p class="auth-message" id="profile-message"></p>
+
+            <div class="profile-links">
+                <a href="index.html">← Retour à la boutique</a>
+                <a href="mes-commandes.html">📦 Mes commandes</a>
+                <button type="button" id="profile-logout" class="danger">Se déconnecter</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>
