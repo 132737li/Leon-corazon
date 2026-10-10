@@ -200,14 +200,6 @@ body {
 
 .logout-btn { margin-top: 5px; }
 
-/* Responsive */
-@media (max-width: 500px) {
-    .auth-card { padding: 25px 20px; }
-    .auth-logo h1 { font-size: 25px; }
-    .auth-card h2 { font-size: 22px; }
-    .form-options { flex-direction: column; align-items: flex-start; }
-}
-
 /* Header auth helpers (for header integration) */
 .header-auth { display: flex; align-items: center; gap: 10px; position: relative; }
 .guest-links { display: flex; gap: 8px; align-items: center; }
@@ -342,4 +334,120 @@ body {
 
 .profile-links .danger {
     color: #b71c1c;
+}
+
+/* =====================================================
+   Responsive Breakpoints
+   ===================================================== */
+
+/* Extra Small Devices (320px - 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    .auth-card {
+        padding: 25px 20px;
+        border-radius: 12px;
+    }
+
+    .auth-logo h1 {
+        font-size: 24px;
+    }
+
+    .auth-logo p {
+        font-size: 13px;
+    }
+
+    .auth-card h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .form-group input {
+        padding: 11px 12px;
+        font-size: 14px;
+    }
+
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 18px;
+    }
+
+    .auth-btn {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .auth-footer {
+        font-size: 13px;
+    }
+
+    .profile-photo-box img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .profile-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* Small Devices (481px - 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 25px 12px;
+    }
+
+    .auth-container {
+        max-width: 450px;
+    }
+
+    .auth-card {
+        padding: 30px 24px;
+    }
+
+    .auth-logo h1 {
+        font-size: 27px;
+    }
+
+    .auth-card h2 {
+        font-size: 23px;
+    }
+
+    .form-group input {
+        padding: 12px 13px;
+        font-size: 15px;
+    }
+}
+
+/* Medium Devices (769px+) */
+@media (min-width: 769px) {
+    .auth-container {
+        max-width: 500px;
+    }
+
+    .auth-card {
+        padding: 40px;
+    }
+}
+
+/* Old responsive rule (preserved for compatibility) */
+@media (max-width: 500px) {
+    .auth-card { padding: 25px 20px; }
+    .auth-logo h1 { font-size: 25px; }
+    .auth-card h2 { font-size: 22px; }
+    .form-options { flex-direction: column; align-items: flex-start; }
 }
